@@ -1,0 +1,11 @@
+--- origsrc/nepomuk-core-4.10.5/servicestub/priority.cpp	2013-06-28 12:04:35.475924000 -0500
++++ src/nepomuk-core-4.10.5/servicestub/priority.cpp	2013-08-26 01:31:36.546232800 -0500
+@@ -31,7 +31,7 @@
+ #include <sys/resource.h>
+ 
+ #include <unistd.h>
+-#ifndef _WIN32
++#ifdef __linux__
+ #include <sys/syscall.h>
+ #include <errno.h>
+ 
