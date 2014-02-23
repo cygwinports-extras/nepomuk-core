@@ -1,22 +1,27 @@
 inherit kde4
 
 NAME="nepomuk-core"
-VERSION=4.10.5
+VERSION=4.11.5
 RELEASE=1
 CATEGORY="KDE"
 SUMMARY="KDE Semantic Desktop core components"
 
 PATCH_URI="
-	4.10.5-cmake-install.patch
+	4.10.5-cmake-exports.patch
+	4.11.5-cmake-install.patch
 	4.10.5-cygwin.patch
 "
 
 PKG_NAMES="${NAME} libnepomukcore4 libnepomukcore-devel"
-nepomuk_core_CONTENTS="--exclude=cygnepomukcore-4.dll --exclude=dbus-1
+nepomuk_core_CONTENTS="--exclude=cygnepomuk*-4.dll --exclude=dbus-1
 	--exclude=*-rcgen* usr/bin/ usr/lib/kde4/ usr/share/"
 libnepomukcore4_CATEGORY="Libs"
-libnepomukcore4_CONTENTS="usr/bin/cygnepomukcore-4.dll"
+libnepomukcore4_REQUIRES="shared-desktop-ontologies"
+libnepomukcore4_CONTENTS="usr/bin/cygnepomukcore-4.dll usr/bin/cygnepomukcleaner-4.dll"
 libnepomukcore_devel_CATEGORY="Libs"
-libnepomukcore_devel_CONTENTS="usr/bin/*-rcgen* usr/include/ usr/lib/cmake/ usr/lib/libnepomukcore.dll.a usr/share/dbus-1/interfaces/"
+libnepomukcore_devel_CONTENTS="usr/bin/*-rcgen* usr/include/ usr/lib/cmake/
+	usr/lib/libnepomukcore.dll.a usr/lib/libnepomukcleaner.dll.a usr/share/dbus-1/interfaces/"
+# internal libraries
+PKG_IGNORE="usr/lib/libnepomukcommon.dll.a usr/lib/libnepomukextractor.dll.a"
 
-CYGCMAKE_ARGS="-DWITH_FFmpeg=NO"
+CYGCMAKE_ARGS="-DAVCODEC_INCLUDE_DIRS=NOTFOUND -DAVCODEC_LIBRARIES=NOTFOUND"

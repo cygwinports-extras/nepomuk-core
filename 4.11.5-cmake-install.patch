@@ -1,0 +1,22 @@
+--- origsrc/nepomuk-core-4.11.5/cleaner/CMakeLists.txt	2014-01-02 13:26:59.000000000 -0600
++++ src/nepomuk-core-4.11.5/cleaner/CMakeLists.txt	2014-02-23 15:55:11.661804200 -0600
+@@ -36,7 +36,7 @@ target_link_libraries( nepomukcleaner-bi
+   )
+ 
+ install(TARGETS nepomukcleaner
+-        DESTINATION ${LIB_INSTALL_DIR})
++        DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+ install(TARGETS nepomukcleaner-bin
+         DESTINATION ${BIN_INSTALL_DIR})
+ install(PROGRAMS nepomukcleaner.desktop
+--- origsrc/nepomuk-core-4.10.5/server/CMakeLists.txt	2013-06-28 12:04:35.514927800 -0500
++++ src/nepomuk-core-4.10.5/server/CMakeLists.txt	2013-08-26 01:50:36.518435400 -0500
+@@ -58,7 +58,7 @@ install(
+ 
+ install(
+   TARGETS kdeinit_nepomukserver
+-  DESTINATION ${LIB_INSTALL_DIR})
++  DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+ install(
+   TARGETS nepomukserver

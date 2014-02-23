@@ -1,0 +1,11 @@
+--- origsrc/nepomuk-core-4.10.5/services/fileindexer/indexer/CMakeLists.txt	2013-06-28 12:04:35.516928000 -0500
++++ src/nepomuk-core-4.10.5/services/fileindexer/indexer/CMakeLists.txt	2013-08-26 03:53:25.500917100 -0500
+@@ -14,7 +14,7 @@ target_link_libraries(nepomukextractor
+   nepomukcore
+ )
+ 
+-install(TARGETS nepomukextractor EXPORT NepomukCoreLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
++install(TARGETS nepomukextractor ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+ set(indexer_SRCS
+   main.cpp
